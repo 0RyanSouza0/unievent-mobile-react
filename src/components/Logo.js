@@ -1,11 +1,12 @@
 import { View } from "react-native";
-import LogoSvg from "../../assets/Logo.svg";
+import { SvgXml } from "react-native-svg";
+import { LogoSvg } from "../constants/svgAssets";
 import { styles } from "../styles/globalStyles";
 
 export default function Logo({}) {
   return (
     <View style={styles.logoRow}>
-      <LogoSvg width={120} height={180} />
+      <SvgXml xml={LogoSvg} width={120} height={180} />
     </View>
   );
 }

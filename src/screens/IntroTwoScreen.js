@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from "react-native";
-import GroupClaro from "../../assets/GroupClaro.svg";
-import GroupEscuro from "../../assets/GroupEscuro.svg";
+import { SvgXml } from "react-native-svg";
+import { GroupClaroSvg, GroupEscuroSvg } from "../constants/svgAssets";
 import Dots from "../components/Dots";
 import IntroCard from "../components/IntroCard";
 import Screen from "../components/Screen";
@@ -9,7 +9,7 @@ import { styles } from "../styles/globalStyles";
 
 export default function IntroTwoScreen({ theme, navigation }) {
   const isLight = theme.mode === "light";
-  const Svg = isLight ? GroupClaro : GroupEscuro;
+  const groupXml = isLight ? GroupClaroSvg : GroupEscuroSvg;
 
   return (
     <Screen theme={theme} bg={isLight ? LIGHT_BG : BLACK} pad={false}>
@@ -20,7 +20,7 @@ export default function IntroTwoScreen({ theme, navigation }) {
             { backgroundColor: isLight ? LIGHT_BG : BLACK },
           ]}
         >
-          <Svg width={180} height={190} />
+          <SvgXml xml={groupXml} width={180} height={190} />
         </View>
 
         <View

@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from "react-native";
-import LogoSvg from "../../assets/Logo.svg";
-import LogoPreta from "../../assets/LogoPreta.svg";
+import { SvgXml } from "react-native-svg";
+import { LogoPretaSvg, LogoSvg } from "../constants/svgAssets";
 import AuthInput from "../components/AuthInput";
 import Screen from "../components/Screen";
 import ThemeButton from "../components/ThemeButton";
@@ -9,7 +9,7 @@ import { styles } from "../styles/globalStyles";
 
 export default function SignInScreen({ theme, navigation, toggleTheme }) {
   const isLight = theme.mode === "light";
-  const Svg = isLight ? LogoPreta : LogoSvg;
+  const logoXml = isLight ? LogoPretaSvg : LogoSvg;
 
   return (
     <Screen theme={theme} bg={isLight ? LIGHT_BG : BLACK} pad={false}>
@@ -20,7 +20,7 @@ export default function SignInScreen({ theme, navigation, toggleTheme }) {
             { backgroundColor: isLight ? LIGHT_BG : BLACK },
           ]}
         >
-          <Svg width={120} height={180} />
+          <SvgXml xml={logoXml} width={120} height={180} />
         </View>
 
         <View
