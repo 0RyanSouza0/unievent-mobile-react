@@ -1,6 +1,6 @@
 import { View } from "react-native";
-import IntroClaro from "../../assets/IntroClaro.svg";
-import IntroEscuro from "../../assets/IntroEscuro.svg";
+import { SvgXml } from "react-native-svg";
+import { IntroClaroSvg, IntroEscuroSvg } from "../constants/svgAssets";
 import IntroCard from "../components/IntroCard";
 import IntroFooter from "../components/IntroFooter";
 import Screen from "../components/Screen";
@@ -9,7 +9,7 @@ import { styles } from "../styles/globalStyles";
 
 export default function IntroOneScreen({ theme, navigation }) {
   const isLight = theme.mode === "light";
-  const Svg = isLight ? IntroClaro : IntroEscuro;
+  const introXml = isLight ? IntroClaroSvg : IntroEscuroSvg;
 
   return (
     <Screen theme={theme} bg={isLight ? LIGHT_BG : BLACK} pad={false}>
@@ -20,7 +20,7 @@ export default function IntroOneScreen({ theme, navigation }) {
             { backgroundColor: isLight ? LIGHT_BG : BLACK },
           ]}
         >
-          <Svg width={250} height={220} />
+          <SvgXml xml={introXml} width={250} height={220} />
         </View>
 
         <View
