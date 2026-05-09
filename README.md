@@ -1,11 +1,22 @@
-# Sample Snack app
+# UniEvent (Expo Snack Ready)
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
+Este projeto foi ajustado para funcionar de forma simples no **[Expo Snack](https://snack.expo.dev/)**.
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo cli](https://docs.expo.dev/get-started/installation/#expo-cli)).
+## Como usar no Snack
 
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
+1. Abra o https://snack.expo.dev/
+2. Crie um novo Snack.
+3. Copie os arquivos deste projeto (principalmente `App.js` e `src/`).
+4. Garanta que as dependências do `package.json` estejam adicionadas no painel `Dependencies` do Snack.
 
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.dev/c/expo-dev-tools/61) or [Discord](https://chat.expo.dev/).
+## Ajustes realizados para compatibilidade
 
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+- `package.json` usando `main: node_modules/expo/AppEntry.js` (entry padrão do Expo/Snack).
+- `app.json` simplificado, sem referência a arquivos locais de `assets/` (evita erro quando esses arquivos não estão no Snack).
+
+## Execução local
+
+```bash
+npm install
+npm run start
+```
