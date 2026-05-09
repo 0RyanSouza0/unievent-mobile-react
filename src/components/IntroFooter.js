@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from "react-native";
-import { styles } from "../styles/globalStyles";
-import Dots from "./Dots";
+import { styles } from "@/styles/globalStyles";
+import Dots from "@/components/Dots";
 
 export default function IntroFooter({ theme, active, onNext, lightDots }) {
   return (

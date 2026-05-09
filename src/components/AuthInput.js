@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { TextInput, View } from "react-native";
-import { styles } from "../styles/globalStyles";
+import { styles } from "@/styles/globalStyles";
 
 export default function AuthInput({ icon, placeholder, secure, theme }) {
   return (

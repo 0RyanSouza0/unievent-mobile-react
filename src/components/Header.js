@@ -1,8 +1,8 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Text, View } from "react-native";
-import { ORANGE } from "../constants/theme";
-import { styles } from "../styles/globalStyles";
-import ThemeButton from "./ThemeButton";
+import { ORANGE } from "@/constants/theme";
+import { styles } from "@/styles/globalStyles";
+import ThemeButton from "@/components/ThemeButton";
 
 export default function Header({ title, subtitle, theme, toggleTheme }) {
   return (

@@ -1,5 +1,5 @@
 import { View } from "react-native";
-import { styles } from "../styles/globalStyles";
+import { styles } from "@/styles/globalStyles";
 
 export default function Dots({ active, theme, lightDots }) {
   const isLight = theme.mode === "light";

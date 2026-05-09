@@ -1,11 +1,11 @@
 import { View } from "react-native";
 import IntroClaro from "../../assets/IntroClaro.svg";
 import IntroEscuro from "../../assets/IntroEscuro.svg";
-import IntroCard from "../components/IntroCard";
-import IntroFooter from "../components/IntroFooter";
-import Screen from "../components/Screen";
-import { BLACK, LIGHT_BG } from "../constants/theme";
-import { styles } from "../styles/globalStyles";
+import IntroCard from "@/components/IntroCard";
+import IntroFooter from "@/components/IntroFooter";
+import Screen from "@/components/Screen";
+import { BLACK, LIGHT_BG } from "@/constants/theme";
+import { styles } from "@/styles/globalStyles";
 
 export default function IntroOneScreen({ theme, navigation }) {
   const isLight = theme.mode === "light";

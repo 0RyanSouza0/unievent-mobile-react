@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity } from "react-native";
-import { BLACK } from "../constants/theme";
-import { styles } from "../styles/globalStyles";
+import { BLACK } from "@/constants/theme";
+import { styles } from "@/styles/globalStyles";
 
 export default function Button({ title, onPress }) {
   return (

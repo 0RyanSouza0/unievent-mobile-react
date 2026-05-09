@@ -1,11 +1,11 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import LogoSvg from "../../assets/Logo.svg";
 import LogoPreta from "../../assets/LogoPreta.svg";
-import AuthInput from "../components/AuthInput";
-import Screen from "../components/Screen";
-import ThemeButton from "../components/ThemeButton";
-import { BLACK, LIGHT_BG, ORANGE } from "../constants/theme";
-import { styles } from "../styles/globalStyles";
+import AuthInput from "@/components/AuthInput";
+import Screen from "@/components/Screen";
+import ThemeButton from "@/components/ThemeButton";
+import { BLACK, LIGHT_BG, ORANGE } from "@/constants/theme";
+import { styles } from "@/styles/globalStyles";
 
 export default function SignInScreen({ theme, navigation, toggleTheme }) {
   const isLight = theme.mode === "light";

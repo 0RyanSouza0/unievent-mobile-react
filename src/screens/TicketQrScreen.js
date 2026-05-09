@@ -2,11 +2,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { Text, TouchableOpacity, View } from "react-native";
 import QRCode from "react-native-qrcode-svg";
 
-import BottomNav from "../components/BottomNav";
-import Screen from "../components/Screen";
-import { BLACK, LIGHT_BG, ORANGE } from "../constants/theme";
-import { useEvents } from "../context/EventContext";
-import { styles } from "../styles/globalStyles";
+import BottomNav from "@/components/BottomNav";
+import Screen from "@/components/Screen";
+import { BLACK, LIGHT_BG, ORANGE } from "@/constants/theme";
+import { useEvents } from "@/context/EventContext";
+import { styles } from "@/styles/globalStyles";
 
 export default function TicketQrScreen({ theme, navigation, route }) {
   const isLight = theme.mode === "light";

@@ -9,12 +9,12 @@ import {
   View,
 } from "react-native";
 
-import BottomNav from "../components/BottomNav";
-import Screen from "../components/Screen";
-import ThemeButton from "../components/ThemeButton";
-import { BLACK, LIGHT_BG, ORANGE } from "../constants/theme";
-import { useEvents } from "../context/EventContext";
-import { styles } from "../styles/globalStyles";
+import BottomNav from "@/components/BottomNav";
+import Screen from "@/components/Screen";
+import ThemeButton from "@/components/ThemeButton";
+import { BLACK, LIGHT_BG, ORANGE } from "@/constants/theme";
+import { useEvents } from "@/context/EventContext";
+import { styles } from "@/styles/globalStyles";
 
 export default function ProfileScreen({
   theme,

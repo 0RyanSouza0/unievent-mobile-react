@@ -8,7 +8,7 @@ import {
   useState,
 } from "react";
 
-import { categoryFilterMap, categoryFilters, events } from "../data/events";
+import { categoryFilterMap, categoryFilters, events } from "@/data/events";
 
 const EventContext = createContext(null);
 
