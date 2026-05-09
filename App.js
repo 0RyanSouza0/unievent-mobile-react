@@ -3,20 +3,20 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useState } from "react";
 import { StatusBar, View } from "react-native";
 
-import { DARK, LIGHT } from "./src/constants/theme";
-import { EventProvider } from "./src/context/EventContext";
+import { DARK, LIGHT } from "@/constants/theme";
+import { EventProvider } from "@/context/EventContext";
 
-import DetailsScreen from "./src/screens/DetailsScreen";
-import FavoritesScreen from "./src/screens/FavoritesScreen";
-import HomeScreen from "./src/screens/HomeScreen";
-import IntroOneScreen from "./src/screens/IntroOneScreen";
-import IntroTwoScreen from "./src/screens/IntroTwoScreen";
-import LoadScreen from "./src/screens/LoadScreen";
-import ProfileScreen from "./src/screens/ProfileScreen";
-import SignInScreen from "./src/screens/SignInScreen";
-import SignUpScreen from "./src/screens/SignUpScreen";
-import TicketQrScreen from "./src/screens/TicketQrScreen";
-import TicketScreen from "./src/screens/TicketScreen";
+import DetailsScreen from "@/screens/DetailsScreen";
+import FavoritesScreen from "@/screens/FavoritesScreen";
+import HomeScreen from "@/screens/HomeScreen";
+import IntroOneScreen from "@/screens/IntroOneScreen";
+import IntroTwoScreen from "@/screens/IntroTwoScreen";
+import LoadScreen from "@/screens/LoadScreen";
+import ProfileScreen from "@/screens/ProfileScreen";
+import SignInScreen from "@/screens/SignInScreen";
+import SignUpScreen from "@/screens/SignUpScreen";
+import TicketQrScreen from "@/screens/TicketQrScreen";
+import TicketScreen from "@/screens/TicketScreen";
 
 const Stack = createNativeStackNavigator();
 

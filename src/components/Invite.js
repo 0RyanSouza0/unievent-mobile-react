@@ -1,6 +1,6 @@
 import { Share, Text, TouchableOpacity, View } from "react-native";
 import TicketSvg from "../../assets/cardIcone.svg"; // ajuste o nome se for diferente
-import { styles } from "../styles/globalStyles";
+import { styles } from "@/styles/globalStyles";
 
 export default function Invite() {
   async function handleShare() {

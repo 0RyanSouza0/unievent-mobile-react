@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
-import { ORANGE } from "../constants/theme";
-import { styles } from "../styles/globalStyles";
+import { ORANGE } from "@/constants/theme";
+import { styles } from "@/styles/globalStyles";
 
 export default function Chips({ theme }) {
   return (

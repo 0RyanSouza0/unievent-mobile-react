@@ -1,11 +1,11 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import GroupClaro from "../../assets/GroupClaro.svg";
 import GroupEscuro from "../../assets/GroupEscuro.svg";
-import Dots from "../components/Dots";
-import IntroCard from "../components/IntroCard";
-import Screen from "../components/Screen";
-import { BLACK, LIGHT_BG } from "../constants/theme";
-import { styles } from "../styles/globalStyles";
+import Dots from "@/components/Dots";
+import IntroCard from "@/components/IntroCard";
+import Screen from "@/components/Screen";
+import { BLACK, LIGHT_BG } from "@/constants/theme";
+import { styles } from "@/styles/globalStyles";
 
 export default function IntroTwoScreen({ theme, navigation }) {
   const isLight = theme.mode === "light";

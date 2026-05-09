@@ -1,8 +1,8 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import { ORANGE } from "../constants/theme";
-import { useEvents } from "../context/EventContext";
-import { styles } from "../styles/globalStyles";
+import { ORANGE } from "@/constants/theme";
+import { useEvents } from "@/context/EventContext";
+import { styles } from "@/styles/globalStyles";
 
 export default function MiniEvent({ e, theme, navigation }) {
   const { isFavorite, toggleFavorite } = useEvents();

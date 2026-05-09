@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { ORANGE } from "../constants/theme";
+import { ORANGE } from "@/constants/theme";
 
 export const styles = StyleSheet.create({
   // BASE

@@ -1,11 +1,11 @@
 import { Ionicons } from "@expo/vector-icons";
 import { ScrollView, Text, View } from "react-native";
-import BottomNav from "../components/BottomNav";
-import Screen from "../components/Screen";
-import TicketCard from "../components/TicketCard";
-import { BLACK, LIGHT_BG, ORANGE } from "../constants/theme";
-import { useEvents } from "../context/EventContext";
-import { styles } from "../styles/globalStyles";
+import BottomNav from "@/components/BottomNav";
+import Screen from "@/components/Screen";
+import TicketCard from "@/components/TicketCard";
+import { BLACK, LIGHT_BG, ORANGE } from "@/constants/theme";
+import { useEvents } from "@/context/EventContext";
+import { styles } from "@/styles/globalStyles";
 
 export default function TicketScreen({ theme, navigation, route }) {
   const isLight = theme.mode === "light";

@@ -1,1 +1,1 @@
-export { categoryFilterMap, categoryFilters, events } from "../data/events";
+export { categoryFilterMap, categoryFilters, events } from "@/data/events";

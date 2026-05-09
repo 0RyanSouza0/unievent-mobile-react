@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { TouchableOpacity, View } from "react-native";
-import { BLACK } from "../constants/theme";
-import { styles } from "../styles/globalStyles";
+import { BLACK } from "@/constants/theme";
+import { styles } from "@/styles/globalStyles";
 
 export default function BottomNav({ navigation, routeName, theme }) {
   const items = [

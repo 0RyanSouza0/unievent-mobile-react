@@ -1,9 +1,9 @@
 import { Text, TouchableOpacity, View } from "react-native";
-import AuthInput from "../components/AuthInput";
-import Logo from "../components/Logo";
-import Screen from "../components/Screen";
-import { BLACK, ORANGE } from "../constants/theme";
-import { styles } from "../styles/globalStyles";
+import AuthInput from "@/components/AuthInput";
+import Logo from "@/components/Logo";
+import Screen from "@/components/Screen";
+import { BLACK, ORANGE } from "@/constants/theme";
+import { styles } from "@/styles/globalStyles";
 
 export default function SignUpScreen({ theme, navigation, toggleTheme }) {
   const isLight = theme.mode === "light";

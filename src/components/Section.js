@@ -1,5 +1,5 @@
 import { Text, View } from "react-native";
-import { styles } from "../styles/globalStyles";
+import { styles } from "@/styles/globalStyles";
 
 export default function Section({ title, action, theme }) {
   return (

@@ -1,6 +1,6 @@
 import { Text, View } from "react-native";
-import { BLACK, ORANGE } from "../constants/theme";
-import { styles } from "../styles/globalStyles";
+import { BLACK, ORANGE } from "@/constants/theme";
+import { styles } from "@/styles/globalStyles";
 
 export default function IntroCard({ title, orange, transparent }) {
   return (

@@ -1,5 +1,5 @@
 import { Platform, SafeAreaView } from "react-native";
-import { styles } from "../styles/globalStyles";
+import { styles } from "@/styles/globalStyles";
 
 export default function Screen({ children, theme, bg, pad = true }) {
   return (

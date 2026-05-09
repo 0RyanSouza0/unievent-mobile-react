@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
-import { ORANGE } from "../constants/theme";
+import { ORANGE } from "@/constants/theme";
 
 export default function ThemeButton({ theme, toggleTheme }) {
   if (theme.mode === "dark") {

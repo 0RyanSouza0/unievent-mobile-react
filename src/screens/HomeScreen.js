@@ -2,15 +2,15 @@ import { Ionicons } from "@expo/vector-icons";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 import Unievent from "../../assets/unievent.svg";
-import BottomNav from "../components/BottomNav";
-import EventRow from "../components/EventRow";
-import Invite from "../components/Invite";
-import MiniEvent from "../components/MiniEvent";
-import Screen from "../components/Screen";
-import ThemeButton from "../components/ThemeButton";
-import { BLACK, LIGHT_BG, ORANGE } from "../constants/theme";
-import { useEvents } from "../context/EventContext";
-import { styles } from "../styles/globalStyles";
+import BottomNav from "@/components/BottomNav";
+import EventRow from "@/components/EventRow";
+import Invite from "@/components/Invite";
+import MiniEvent from "@/components/MiniEvent";
+import Screen from "@/components/Screen";
+import ThemeButton from "@/components/ThemeButton";
+import { BLACK, LIGHT_BG, ORANGE } from "@/constants/theme";
+import { useEvents } from "@/context/EventContext";
+import { styles } from "@/styles/globalStyles";
 
 export default function HomeScreen({ theme, navigation, route, toggleTheme }) {
   const isLight = theme.mode === "light";

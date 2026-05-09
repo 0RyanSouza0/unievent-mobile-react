@@ -1,7 +1,7 @@
 import { TouchableOpacity, View } from "react-native";
-import Logo from "../components/Logo";
-import Screen from "../components/Screen";
-import { styles } from "../styles/globalStyles";
+import Logo from "@/components/Logo";
+import Screen from "@/components/Screen";
+import { styles } from "@/styles/globalStyles";
 
 export default function LoadScreen({ theme, navigation }) {
   return (
