@@ -159,11 +159,6 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   signInButtonText: { color: "#FFFFFF", fontSize: 15, fontWeight: "800" },
-  aboutTitle: {
-    fontSize: 14,
-    fontWeight: "900",
-    marginBottom: 10,
-  },
   row: {
     flexDirection: "row",
     alignItems: "center",
@@ -624,11 +619,6 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
   },
   garantedText: { color: "#FFFFFF", fontSize: 15, fontWeight: "800" },
-  aboutTitle: {
-    fontSize: 14,
-    fontWeight: "900",
-    marginBottom: 10,
-  },
 
   aboutText: {
     fontSize: 11,
