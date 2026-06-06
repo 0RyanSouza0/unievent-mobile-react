@@ -1,5 +1,5 @@
-import { Share, Text, TouchableOpacity, View } from "react-native";
-import TicketSvg from "../../assets/cardIcone.svg"; // ajuste o nome se for diferente
+import { Image, Share, Text, TouchableOpacity, View } from "react-native";
+import TicketIcon from "../../assets/cardIcone.png";
 import { styles } from "../styles/globalStyles";
 
 export default function Invite() {
@@ -27,7 +27,7 @@ export default function Invite() {
         </TouchableOpacity>
       </View>
 
-      <TicketSvg width={70} height={70} />
+      <Image source={TicketIcon} style={styles.inviteIconImage} />
     </View>
   );
 }

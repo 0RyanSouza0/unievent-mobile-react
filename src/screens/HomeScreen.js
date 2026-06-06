@@ -1,7 +1,8 @@
 import { Ionicons } from "@expo/vector-icons";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
-import Unievent from "../../assets/unievent.svg";
+import Unievent from "../../assets/unievent.png";
+import UnieventPreta from "../../assets/unieventPreta.png";
 import BottomNav from "../components/BottomNav";
 import EventRow from "../components/EventRow";
 import Invite from "../components/Invite";
@@ -32,7 +33,10 @@ export default function HomeScreen({ theme, navigation, route, toggleTheme }) {
         contentContainerStyle={styles.homeScroll}
       >
         <View style={styles.homeHeader}>
-          <Unievent width={125} height={38} fill={isLight ? BLACK : ORANGE} />
+          <Image
+            source={isLight ? UnieventPreta : Unievent}
+            style={styles.homeLogoImage}
+          />
 
           <View style={styles.homeIcons}>
             <TouchableOpacity>

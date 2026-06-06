@@ -47,6 +47,12 @@ const baseStyles = StyleSheet.create({
     alignItems: "center",
   },
 
+  logoImage: {
+    width: 120,
+    height: 180,
+    resizeMode: "contain",
+  },
+
   scroll: {
     paddingBottom: 92,
   },
@@ -67,6 +73,18 @@ const baseStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingTop: 35,
+  },
+
+  introOneImage: {
+    width: 250,
+    height: 220,
+    resizeMode: "contain",
+  },
+
+  introTwoImage: {
+    width: 180,
+    height: 190,
+    resizeMode: "contain",
   },
 
   introBottom: {
@@ -147,6 +165,12 @@ const baseStyles = StyleSheet.create({
     height: 165,
     alignItems: "center",
     justifyContent: "center",
+  },
+
+  authLogoImage: {
+    width: 120,
+    height: 180,
+    resizeMode: "contain",
   },
 
   authBottom: {
@@ -295,6 +319,12 @@ const baseStyles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+
+  homeLogoImage: {
+    width: 125,
+    height: 38,
+    resizeMode: "contain",
   },
 
   homeIcons: {
@@ -552,6 +582,12 @@ const baseStyles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 12,
     fontWeight: "700",
+  },
+
+  inviteIconImage: {
+    width: 70,
+    height: 70,
+    resizeMode: "contain",
   },
 
   // DETAILS
