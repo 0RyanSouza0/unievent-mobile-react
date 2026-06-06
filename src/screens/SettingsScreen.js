@@ -21,9 +21,6 @@ export default function SettingsScreen({
   const [eventReminders, setEventReminders] = useState(true);
   const [certificateAlerts, setCertificateAlerts] = useState(true);
   const [favoriteSuggestions, setFavoriteSuggestions] = useState(true);
-  const [publicProfile, setPublicProfile] = useState(false);
-  const [saveHistory, setSaveHistory] = useState(true);
-  const [autoCertificate, setAutoCertificate] = useState(false);
 
   const accessibilityItems = [
     {
@@ -77,30 +74,6 @@ export default function SettingsScreen({
       description: "Use seus interesses para destacar eventos parecidos.",
       value: favoriteSuggestions,
       onValueChange: setFavoriteSuggestions,
-    },
-  ];
-
-  const privacyItems = [
-    {
-      icon: "person-circle-outline",
-      title: "Perfil público",
-      description: "Permite que organizadores vejam seu perfil básico.",
-      value: publicProfile,
-      onValueChange: setPublicProfile,
-    },
-    {
-      icon: "time-outline",
-      title: "Histórico de participação",
-      description: "Mantém eventos validados e certificados no app.",
-      value: saveHistory,
-      onValueChange: setSaveHistory,
-    },
-    {
-      icon: "ribbon-outline",
-      title: "Certificado automático",
-      description: "Emite o certificado assim que o QR Code for validado.",
-      value: autoCertificate,
-      onValueChange: setAutoCertificate,
     },
   ];
 
@@ -172,12 +145,6 @@ export default function SettingsScreen({
 
         <SettingsSection title="Notificações" theme={theme}>
           {notificationItems.map((item) => (
-            <SettingsToggle key={item.title} {...item} theme={theme} />
-          ))}
-        </SettingsSection>
-
-        <SettingsSection title="Privacidade e dados" theme={theme}>
-          {privacyItems.map((item) => (
             <SettingsToggle key={item.title} {...item} theme={theme} />
           ))}
         </SettingsSection>
