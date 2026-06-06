@@ -12,21 +12,28 @@ import HomeScreen from "./src/screens/HomeScreen";
 import IntroOneScreen from "./src/screens/IntroOneScreen";
 import IntroTwoScreen from "./src/screens/IntroTwoScreen";
 import LoadScreen from "./src/screens/LoadScreen";
+import MyEventsScreen from "./src/screens/MyEventsScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
+import SettingsScreen from "./src/screens/SettingsScreen";
 import SignInScreen from "./src/screens/SignInScreen";
 import SignUpScreen from "./src/screens/SignUpScreen";
 import TicketQrScreen from "./src/screens/TicketQrScreen";
 import TicketScreen from "./src/screens/TicketScreen";
+import { setLargeTextEnabled } from "./src/styles/globalStyles";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   const [isLight, setIsLight] = useState(false);
+  const [largeText, setLargeText] = useState(false);
   const theme = isLight ? LIGHT : DARK;
+  setLargeTextEnabled(largeText);
 
   const screenProps = {
     theme,
     toggleTheme: () => setIsLight((value) => !value),
+    largeText,
+    setLargeText,
   };
 
   return (
@@ -80,6 +87,12 @@ export default function App() {
 
             <Stack.Screen name="Profile">
               {(props) => <ProfileScreen {...props} {...screenProps} />}
+            </Stack.Screen>
+            <Stack.Screen name="MyEvents">
+              {(props) => <MyEventsScreen {...props} {...screenProps} />}
+            </Stack.Screen>
+            <Stack.Screen name="Settings">
+              {(props) => <SettingsScreen {...props} {...screenProps} />}
             </Stack.Screen>
             <Stack.Screen name="TicketQr">
               {(props) => <TicketQrScreen {...props} {...screenProps} />}

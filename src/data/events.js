@@ -42,6 +42,7 @@ export const events = [
     isFree: true,
     vacancies: 120,
     organizer: "Fatec Ferraz de Vasconcelos",
+    hasCertificate: true,
   },
   {
     id: "2",
@@ -61,6 +62,7 @@ export const events = [
     isFree: true,
     vacancies: 80,
     organizer: "Fatec Ferraz de Vasconcelos",
+    hasCertificate: true,
   },
   {
     id: "3",
@@ -80,6 +82,7 @@ export const events = [
     isFree: true,
     vacancies: 150,
     organizer: "Fatec Ferraz de Vasconcelos",
+    hasCertificate: true,
   },
   {
     id: "4",
@@ -99,6 +102,7 @@ export const events = [
     isFree: true,
     vacancies: 35,
     organizer: "Fatec Ferraz de Vasconcelos",
+    hasCertificate: false,
   },
   {
     id: "5",
@@ -118,6 +122,7 @@ export const events = [
     isFree: true,
     vacancies: 45,
     organizer: "Fatec Ferraz de Vasconcelos",
+    hasCertificate: true,
   },
   {
     id: "6",
@@ -137,6 +142,7 @@ export const events = [
     isFree: true,
     vacancies: 60,
     organizer: "Atlética Fatec Ferraz",
+    hasCertificate: false,
   },
   {
     id: "7",

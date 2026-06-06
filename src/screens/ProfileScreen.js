@@ -49,11 +49,13 @@ export default function ProfileScreen({
           </Text>
 
           <View style={styles.profileHeaderIcons}>
-            <Ionicons
-              name="settings-outline"
-              color={isLight ? BLACK : "#FFFFFF"}
-              size={18}
-            />
+            <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
+              <Ionicons
+                name="settings-outline"
+                color={isLight ? BLACK : "#FFFFFF"}
+                size={18}
+              />
+            </TouchableOpacity>
             <ThemeButton theme={theme} toggleTheme={toggleTheme} />
           </View>
         </View>
@@ -90,6 +92,16 @@ export default function ProfileScreen({
               ]}
             >
               <Text style={styles.profileButtonText}>Eventos favoritos</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              onPress={() => navigation.navigate("MyEvents")}
+              style={[
+                styles.profileButton,
+                { backgroundColor: isLight ? BLACK : ORANGE },
+              ]}
+            >
+              <Text style={styles.profileButtonText}>Meus eventos</Text>
             </TouchableOpacity>
           </View>
         </View>

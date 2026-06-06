@@ -1,7 +1,36 @@
 import { StyleSheet } from "react-native";
 import { ORANGE } from "../constants/theme";
 
-export const styles = StyleSheet.create({
+const LARGE_TEXT_MULTIPLIER = 1.18;
+let largeTextEnabled = false;
+const scaledStyleCache = new Map();
+
+export function setLargeTextEnabled(enabled) {
+  largeTextEnabled = Boolean(enabled);
+}
+
+function getScaledStyle(styleName, style) {
+  const flatStyle = StyleSheet.flatten(style);
+
+  if (!flatStyle || typeof flatStyle !== "object") {
+    return style;
+  }
+
+  if (!flatStyle.fontSize || typeof flatStyle.fontSize !== "number") {
+    return style;
+  }
+
+  if (!scaledStyleCache.has(styleName)) {
+    scaledStyleCache.set(styleName, {
+      ...flatStyle,
+      fontSize: Math.round(flatStyle.fontSize * LARGE_TEXT_MULTIPLIER),
+    });
+  }
+
+  return scaledStyleCache.get(styleName);
+}
+
+const baseStyles = StyleSheet.create({
   // BASE
   safe: {
     flex: 1,
@@ -658,6 +687,9 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 4,
+    minHeight: 34,
+    borderRadius: 8,
+    paddingHorizontal: 8,
   },
 
   ticketFilterText: {
@@ -665,8 +697,51 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
   },
 
+  ticketFilterActive: {
+    backgroundColor: "rgba(245,111,34,0.12)",
+  },
+
+  ticketFilterOptions: {
+    gap: 8,
+    paddingBottom: 14,
+  },
+
+  ticketFilterChip: {
+    minHeight: 32,
+    borderWidth: 1,
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 12,
+  },
+
+  ticketFilterChipText: {
+    fontSize: 10,
+    fontWeight: "800",
+  },
+
   ticketList: {
     gap: 20,
+  },
+
+  ticketEmptyState: {
+    borderRadius: 8,
+    padding: 20,
+    alignItems: "center",
+  },
+
+  ticketEmptyTitle: {
+    fontSize: 14,
+    fontWeight: "900",
+    marginTop: 10,
+    marginBottom: 5,
+    textAlign: "center",
+  },
+
+  ticketEmptyText: {
+    fontSize: 11,
+    lineHeight: 16,
+    textAlign: "center",
   },
 
   ticketCardCustom: {
@@ -768,6 +843,8 @@ export const styles = StyleSheet.create({
 
   profileBtns: {
     flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
     gap: 10,
     marginTop: 18,
   },
@@ -829,6 +906,245 @@ export const styles = StyleSheet.create({
   profileTagText: {
     fontSize: 10,
     fontWeight: "600",
+  },
+
+  // SETTINGS
+  settingsScroll: {
+    paddingTop: 34,
+    paddingBottom: 130,
+  },
+
+  settingsHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 22,
+  },
+
+  settingsBackButton: {
+    width: 34,
+    height: 34,
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  settingsTitle: {
+    fontSize: 18,
+    fontWeight: "900",
+  },
+
+  settingsHero: {
+    borderRadius: 8,
+    padding: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+    marginBottom: 24,
+  },
+
+  settingsHeroIcon: {
+    width: 46,
+    height: 46,
+    borderRadius: 8,
+    backgroundColor: ORANGE,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  settingsHeroText: {
+    flex: 1,
+  },
+
+  settingsHeroTitle: {
+    fontSize: 15,
+    fontWeight: "900",
+    marginBottom: 4,
+  },
+
+  settingsHeroSubtitle: {
+    fontSize: 11,
+    lineHeight: 16,
+  },
+
+  settingsSection: {
+    marginBottom: 18,
+  },
+
+  settingsSectionTitle: {
+    fontSize: 14,
+    fontWeight: "900",
+    marginBottom: 9,
+  },
+
+  settingsSectionBody: {
+    borderRadius: 8,
+    overflow: "hidden",
+  },
+
+  settingsRow: {
+    minHeight: 72,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+    paddingHorizontal: 13,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: "rgba(150,150,150,0.18)",
+  },
+
+  settingsRowIcon: {
+    width: 36,
+    height: 36,
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  settingsRowText: {
+    flex: 1,
+  },
+
+  settingsRowTitle: {
+    fontSize: 13,
+    fontWeight: "900",
+    marginBottom: 3,
+  },
+
+  settingsRowDescription: {
+    fontSize: 10,
+    lineHeight: 14,
+  },
+
+  // MY EVENTS
+  myEventsScroll: {
+    paddingTop: 34,
+    paddingBottom: 130,
+  },
+
+  myEventsHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 24,
+  },
+
+  myEventsTitle: {
+    fontSize: 18,
+    fontWeight: "900",
+  },
+
+  myEventsList: {
+    gap: 14,
+  },
+
+  myEventsEmpty: {
+    borderRadius: 8,
+    padding: 22,
+    alignItems: "center",
+  },
+
+  myEventsEmptyTitle: {
+    fontSize: 16,
+    fontWeight: "900",
+    marginTop: 12,
+    marginBottom: 6,
+  },
+
+  myEventsEmptyText: {
+    fontSize: 12,
+    lineHeight: 18,
+    textAlign: "center",
+  },
+
+  myEventCard: {
+    borderRadius: 8,
+    overflow: "hidden",
+  },
+
+  myEventImage: {
+    width: "100%",
+    height: 128,
+  },
+
+  myEventContent: {
+    padding: 14,
+  },
+
+  myEventTop: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    justifyContent: "space-between",
+    gap: 10,
+    marginBottom: 8,
+  },
+
+  myEventTitle: {
+    flex: 1,
+    fontSize: 15,
+    fontWeight: "900",
+    lineHeight: 19,
+  },
+
+  myEventValidatedBadge: {
+    borderRadius: 8,
+    backgroundColor: "#2B231F",
+    borderWidth: 1,
+    borderColor: ORANGE,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 5,
+    paddingHorizontal: 8,
+    paddingVertical: 5,
+  },
+
+  myEventValidatedText: {
+    color: "#FFFFFF",
+    fontSize: 9,
+    fontWeight: "900",
+  },
+
+  myEventMeta: {
+    fontSize: 11,
+    lineHeight: 16,
+  },
+
+  myEventCertificateButton: {
+    minHeight: 44,
+    borderRadius: 8,
+    backgroundColor: ORANGE,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    paddingHorizontal: 12,
+    marginTop: 14,
+  },
+
+  myEventCertificateText: {
+    color: "#FFFFFF",
+    fontSize: 13,
+    fontWeight: "900",
+    textAlign: "center",
+  },
+
+  myEventNoCertificate: {
+    minHeight: 42,
+    borderRadius: 8,
+    backgroundColor: "#393939",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 7,
+    paddingHorizontal: 12,
+    marginTop: 14,
+  },
+
+  myEventNoCertificateText: {
+    color: "#DADADA",
+    fontSize: 12,
+    fontWeight: "800",
+    textAlign: "center",
   },
 
   // MODAL
@@ -958,6 +1274,89 @@ export const styles = StyleSheet.create({
     lineHeight: 18,
   },
 
+  qrActions: {
+    width: "100%",
+    marginTop: 22,
+    gap: 12,
+  },
+
+  qrReadButton: {
+    minHeight: 48,
+    borderRadius: 8,
+    backgroundColor: ORANGE,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    paddingHorizontal: 14,
+  },
+
+  qrReadButtonText: {
+    color: "#FFFFFF",
+    fontSize: 13,
+    fontWeight: "900",
+    textAlign: "center",
+  },
+
+  qrReadBadge: {
+    minHeight: 42,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: ORANGE,
+    backgroundColor: "#2B231F",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    paddingHorizontal: 14,
+  },
+
+  qrReadText: {
+    color: "#FFFFFF",
+    fontSize: 13,
+    fontWeight: "800",
+  },
+
+  certificateButton: {
+    minHeight: 50,
+    borderRadius: 8,
+    backgroundColor: ORANGE,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+    paddingHorizontal: 14,
+  },
+
+  certificateButtonDisabled: {
+    backgroundColor: "#696969",
+  },
+
+  certificateButtonText: {
+    color: "#FFFFFF",
+    fontSize: 14,
+    fontWeight: "900",
+    textAlign: "center",
+  },
+
+  certificateUnavailableBadge: {
+    minHeight: 44,
+    borderRadius: 8,
+    backgroundColor: "#393939",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 7,
+    paddingHorizontal: 12,
+  },
+
+  certificateUnavailableText: {
+    color: "#DADADA",
+    fontSize: 12,
+    fontWeight: "800",
+    textAlign: "center",
+  },
+
   // BOTTOM NAV
   nav: {
     position: "absolute",
@@ -978,5 +1377,12 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center",
     justifyContent: "center",
+  },
+});
+
+export const styles = new Proxy(baseStyles, {
+  get(target, styleName) {
+    const style = target[styleName];
+    return largeTextEnabled ? getScaledStyle(styleName, style) : style;
   },
 });

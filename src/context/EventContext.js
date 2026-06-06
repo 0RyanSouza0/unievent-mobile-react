@@ -15,6 +15,8 @@ const EventContext = createContext(null);
 const STORAGE_KEYS = {
   favorites: "@unievent:favorites",
   registrations: "@unievent:registrations",
+  attended: "@unievent:attended",
+  certificates: "@unievent:certificates",
 };
 
 function normalizeText(value) {
@@ -43,6 +45,8 @@ function readStoredIds(value) {
 export function EventProvider({ children }) {
   const [favoriteIds, setFavoriteIds] = useState([]);
   const [registeredIds, setRegisteredIds] = useState([]);
+  const [attendedIds, setAttendedIds] = useState([]);
+  const [certificateIds, setCertificateIds] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("Todos");
   const [searchTerm, setSearchTerm] = useState("");
   const [hydrated, setHydrated] = useState(false);
@@ -52,15 +56,24 @@ export function EventProvider({ children }) {
 
     async function hydrate() {
       try {
-        const [storedFavorites, storedRegistrations] = await Promise.all([
+        const [
+          storedFavorites,
+          storedRegistrations,
+          storedAttended,
+          storedCertificates,
+        ] = await Promise.all([
           AsyncStorage.getItem(STORAGE_KEYS.favorites),
           AsyncStorage.getItem(STORAGE_KEYS.registrations),
+          AsyncStorage.getItem(STORAGE_KEYS.attended),
+          AsyncStorage.getItem(STORAGE_KEYS.certificates),
         ]);
 
         if (!isMounted) return;
 
         setFavoriteIds(readStoredIds(storedFavorites));
         setRegisteredIds(readStoredIds(storedRegistrations));
+        setAttendedIds(readStoredIds(storedAttended));
+        setCertificateIds(readStoredIds(storedCertificates));
       } catch {
         return null;
       } finally {
@@ -95,6 +108,24 @@ export function EventProvider({ children }) {
     ).catch(() => null);
   }, [registeredIds, hydrated]);
 
+  useEffect(() => {
+    if (!hydrated) return;
+
+    AsyncStorage.setItem(
+      STORAGE_KEYS.attended,
+      JSON.stringify(attendedIds)
+    ).catch(() => null);
+  }, [attendedIds, hydrated]);
+
+  useEffect(() => {
+    if (!hydrated) return;
+
+    AsyncStorage.setItem(
+      STORAGE_KEYS.certificates,
+      JSON.stringify(certificateIds)
+    ).catch(() => null);
+  }, [certificateIds, hydrated]);
+
   const getEventById = useCallback(
     (eventId) => events.find((event) => asId(event.id) === asId(eventId)),
     []
@@ -124,6 +155,32 @@ export function EventProvider({ children }) {
     const id = asId(eventId);
 
     setRegisteredIds((current) =>
+      current.includes(id) ? current : [...current, id]
+    );
+  }, []);
+
+  const markEventAsAttended = useCallback((eventId) => {
+    const id = asId(eventId);
+
+    setAttendedIds((current) =>
+      current.includes(id) ? current : [...current, id]
+    );
+  }, []);
+
+  const hasAttended = useCallback(
+    (eventId) => attendedIds.includes(asId(eventId)),
+    [attendedIds]
+  );
+
+  const hasIssuedCertificate = useCallback(
+    (eventId) => certificateIds.includes(asId(eventId)),
+    [certificateIds]
+  );
+
+  const issueCertificate = useCallback((eventId) => {
+    const id = asId(eventId);
+
+    setCertificateIds((current) =>
       current.includes(id) ? current : [...current, id]
     );
   }, []);
@@ -165,6 +222,11 @@ export function EventProvider({ children }) {
     [registeredIds]
   );
 
+  const attendedEvents = useMemo(
+    () => events.filter((event) => attendedIds.includes(asId(event.id))),
+    [attendedIds]
+  );
+
   const value = useMemo(
     () => ({
       events,
@@ -182,6 +244,13 @@ export function EventProvider({ children }) {
       registeredEvents,
       isRegistered,
       registerForEvent,
+      attendedIds,
+      attendedEvents,
+      markEventAsAttended,
+      hasAttended,
+      certificateIds,
+      hasIssuedCertificate,
+      issueCertificate,
       getEventById,
     }),
     [
@@ -189,14 +258,21 @@ export function EventProvider({ children }) {
       favoriteIds,
       filteredEvents,
       getEventById,
+      hasAttended,
+      hasIssuedCertificate,
       isFavorite,
       isRegistered,
+      attendedEvents,
+      attendedIds,
+      certificateIds,
       registeredEvents,
       registeredIds,
       searchTerm,
       selectedCategory,
       toggleFavorite,
       registerForEvent,
+      markEventAsAttended,
+      issueCertificate,
     ]
   );
 
